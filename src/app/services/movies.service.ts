@@ -13,31 +13,31 @@ export class MoviesService {
 
   getTopRatedMovies(page = 1): Observable<Movies> {
     return this.http.get<Movies>(
-      `${environment.baseUrl}/movie/popular?api_key=${environment.apiKey}&page=${page}`
+      `${environment.baseUrl}/movie/top_rated?api_key=${environment.apiKey}&page=${page}&language=${environment.lang}`
     );
   }
 
   getMoviesDetails(id: any): Observable<any> {
     return this.http.get(
-      `${environment.baseUrl}/movie/${id}?api_key=${environment.apiKey}`
+      `${environment.baseUrl}/movie/${id}?api_key=${environment.apiKey}&language=${environment.lang}`
     );
   }
 
   getNowPlaying(page = 1): Observable<any> {
-    return this.http.get(`${environment.baseUrl}/movie/now_playing?api_key=${environment.apiKey}&page=${page}`)
+    return this.http.get(`${environment.baseUrl}/movie/now_playing?api_key=${environment.apiKey}&page=${page}&language=${environment.lang}`)
   }
 
   getVideos(id: any): Observable<any>{
-    return this.http.get(`${environment.baseUrl}/movie/${id}/videos?api_key=${environment.apiKey}`)
+    return this.http.get(`${environment.baseUrl}/movie/${id}/videos?api_key=${environment.apiKey}&language=${environment.lang}`)
   }
 
-  getUpcoming(page = 1): Observable<any>{ 
-    return this.http.get(`${environment.baseUrl}/movie/upcoming?api_key=${environment.apiKey}&page=${page}`)
+  getUpcoming(page = 1): Observable<any>{
+    return this.http.get(`${environment.baseUrl}/movie/upcoming?api_key=${environment.apiKey}&page=${page}&language=${environment.lang}`)
   }
 
   getTopMovies(page=1): Observable<any>{
     return this.http.get(
-      `${environment.baseUrl}/movie/top_rated?api_key=${environment.apiKey}&page=${page}`
+      `${environment.baseUrl}/movie/top_rated?api_key=${environment.apiKey}&page=${page}&language=${environment.lang}`
     );
   }
 }

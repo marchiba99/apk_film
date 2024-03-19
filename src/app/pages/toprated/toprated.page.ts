@@ -49,4 +49,11 @@ export class TopratedPage implements OnInit {
     }, 1000);
   }
 
+  handleRefresh(event: any) {
+    setTimeout(() => {
+      this.loadMovies();
+      event.target.complete();
+    }, 2000);
+  };
+
 }

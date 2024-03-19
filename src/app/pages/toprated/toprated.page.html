@@ -1,10 +1,47 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/movies"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Top-rated movies</ion-title>
+    <ion-back-button slot="start" defaultHref="/movies"></ion-back-button>
+    <ion-title>Top rated</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-item
+      button
+      routerLink="{{item.id}}/{{item.original_title}}"
+      *ngFor="let item of movie;"
+      routerLinkActive="router-link-active"
+      detail="false"
+    >
+      <ion-avatar slot="start">
+        <ion-img lazy [src]="imgbaseUrl + '/w92' + item.poster_path"></ion-img>
+      </ion-avatar>
+
+      <ion-label>
+        {{item.title}}
+        <p>{{item.release_date | date: 'yyyy/MM/dd'}}</p>
+      </ion-label>
+
+      <ion-button
+        fill="clear"
+        slot="end"
+      ><ion-icon name="play-outline"></ion-icon
+      ></ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- infinite scrol -->
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

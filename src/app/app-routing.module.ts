@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: 'nowplaying/:id/:name',
     loadChildren: () => import('./pages/trailer/trailer.module').then( m => m.TrailerPageModule)
-  },  {
+  },
+  {
     path: 'upcoming',
     loadChildren: () => import('./pages/upcoming/upcoming.module').then( m => m.UpcomingPageModule)
   },
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'toprated',
     loadChildren: () => import('./pages/toprated/toprated.module').then( m => m.TopratedPageModule)
+  },
+  {
+    path: 'toprated/:id/:name',
+    loadChildren: () => import('./pages/trailer/trailer.module').then( m => m.TrailerPageModule)
   }
 
 
