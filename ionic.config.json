@@ -1,7 +1,9 @@
 {
-  "name": "film_apk",
+  "name": "Movies",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "id": "d3b24e22"
 }

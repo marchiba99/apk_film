@@ -1,0 +1,6 @@
+{
+	"appId": "com.shaggy.movies",
+	"appName": "Movies",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

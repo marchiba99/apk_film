@@ -1,0 +1,76 @@
+<ion-header color="primary">
+  <ion-toolbar>
+    <ion-title>Trending Movies</ion-title>
+    <ion-button id="open-modal" fill="clear" slot="end"
+      ><ion-icon color="primary" name="ellipsis-vertical-outline"></ion-icon
+    ></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-item
+      button
+      *ngFor="let item of movie;"
+      [routerLink]="[item.id]"
+      routerLinkActive="router-link-active"
+      detail="false"
+    >
+      <ion-avatar slot="start">
+        <ion-img lazy [src]="imgbaseUrl + '/w92' + item.poster_path"></ion-img>
+      </ion-avatar>
+
+      <ion-label>
+        {{item.title}}
+        <p>{{item.release_date | date: 'yyyy/MM/dd'}}</p>
+      </ion-label>
+
+      <ion-badge slot="end">{{item.vote_average}}</ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <!-- infinite scrol -->
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <!-- menu modal -->
+  <ion-modal
+    #modal
+    trigger="open-modal"
+    [initialBreakpoint]="0.25"
+    [breakpoints]="[0, 0.25, 0.5, 0.75]"
+  >
+    <ng-template>
+      <ion-content>
+        <ion-list>
+          <ion-item button routerLink="/nowplaying">
+            <ion-icon slot="start" name="play-circle-outline"></ion-icon>
+            <ion-label> Now playing in cinema</ion-label>
+          </ion-item>
+          <ion-item button routerLink="/upcoming">
+            <ion-icon slot="start" name="videocam-outline"></ion-icon>
+            <ion-label> Upcoming movies</ion-label>
+          </ion-item>
+          <ion-item button routerLink="/recommendations">
+            <ion-icon slot="start" name="document-text-outline"></ion-icon>
+            <ion-label> Recommendations </ion-label>
+          </ion-item>
+          <ion-item button routerLink="/toprated">
+            <ion-icon slot="start" name="happy-outline"></ion-icon>
+            <ion-label> Top-rated movies</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
