@@ -1,0 +1,7 @@
+{
+  "name": "film_apk",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
