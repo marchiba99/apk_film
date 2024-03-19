@@ -1,15 +1,19 @@
-<h2>{{film.name | uppercase}} Details</h2>
-<div>
-  <span>id:</span>
-  {{film.id}}
-</div>
+<h2>My Films</h2>
+<ul class="films">
+  <li *ngFor="let film of films">
+    <button [class.selected]="film === selectedFilm" type="button" (click)="onSelect(film)">
+      <span class="badge">{{film.id}}</span>
+      <span class="name">{{film.name}}</span>
+    </button>
+  </li>
+</ul>
 
-<div>
-  <span>name:</span>
-  {{film.name}}
-</div>
 
-<div>
-  <label for="name">Film name: </label>
-  <input id="name" [(ngModel)]="film.name" placeholder="name">
+<div *ngIf="selectedFilm">
+  <h2>{{selectedFilm.name | uppercase}} Details</h2>
+  <div>id: {{selectedFilm.id}}</div>
+  <div>
+    <label for="film-name">Film name: </label>
+    <input id="film-name" [(ngModel)]="selectedFilm.name" placeholder="name">
+  </div>
 </div>
