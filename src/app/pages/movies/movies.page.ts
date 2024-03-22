@@ -9,6 +9,11 @@ import {
 import { Movies } from 'src/app/Models/movie.model';
 import { MoviesService } from 'src/app/services/movies.service';
 import { environment } from 'src/environments/environment';
+import { MoviesRankingService } from 'src/app/services/movies-ranking.service';
+import { Plugins } from '@capacitor/core'; // Importa Plugins desde @capacitor/core
+const { Storage } = Plugins;
+
+
 
 @Component({
   selector: 'app-movies',
@@ -17,6 +22,7 @@ import { environment } from 'src/environments/environment';
 })
 export class MoviesPage implements OnInit {
   constructor(
+  private moviesRankingService: MoviesRankingService,
     private movies: MoviesService,
     private loadingCtrl: LoadingController,
     private platform: Platform,
@@ -32,6 +38,7 @@ export class MoviesPage implements OnInit {
     });
   }
 
+  movies_ranking: Movies[] = [];
   movie: any = [];
   currentPage = 1;
   imgbaseUrl = environment.images;
@@ -58,6 +65,8 @@ export class MoviesPage implements OnInit {
 
   ngOnInit() {
     this.loadMovies();
+    this.movies_ranking = this.moviesRankingService.obtenerPeliculas();
+
   }
 
 
@@ -67,6 +76,12 @@ export class MoviesPage implements OnInit {
     setTimeout(() => {
       (event as InfiniteScrollCustomEvent).target.complete();
     }, 1000);
+  }
+  agregarPelicula(movies_ranking: Movies) {
+    this.moviesRankingService.agregarPelicula(movies_ranking);
+    this.movies_ranking = this.moviesRankingService.obtenerPeliculas(); // Actualizar la lista después de agregar una película
+    console.log("agregada pelicula")
+    console.log('Lista de películas:', this.movies_ranking);
   }
 
   handleRefresh(event: any) {

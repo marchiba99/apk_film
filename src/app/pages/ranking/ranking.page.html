@@ -38,5 +38,18 @@
 </ion-modal>
 
 <ion-content>
+  <ion-list>
+    <ion-item *ngFor="let movie of moviesRanking">
+      <ion-avatar slot="start">
+        <ion-img [src]="imgbaseUrl + '/w92' + movie.results[0].poster_path"></ion-img>
+      </ion-avatar>
 
+      <ion-label>
+        <h2>{{ movie.results[0].title }}</h2>
+        <p>Fecha de lanzamiento: {{ movie.results[0].release_date }}</p>
+        <p>Valoración: {{ movie.results[0].vote_average }}</p>
+        <p>Descripción: {{ movie.results[0].overview }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
