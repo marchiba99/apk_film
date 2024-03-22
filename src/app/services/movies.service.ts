@@ -35,9 +35,9 @@ export class MoviesService {
     return this.http.get(`${environment.baseUrl}/movie/upcoming?api_key=${environment.apiKey}&page=${page}&language=${environment.lang}`)
   }
 
-  getTopMovies(page=1): Observable<any>{
+  getPopularMovies(page=1): Observable<any>{
     return this.http.get(
-      `${environment.baseUrl}/movie/top_rated?api_key=${environment.apiKey}&page=${page}&language=${environment.lang}`
+      `${environment.baseUrl}/movie/popular?api_key=${environment.apiKey}&page=${page}&language=${environment.lang}`
     );
   }
 }

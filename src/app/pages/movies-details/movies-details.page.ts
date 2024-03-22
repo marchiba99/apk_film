@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./movies-details.page.scss'],
 })
 export class MoviesDetailsPage implements OnInit {
+  notaMarc: number = 0; // Asignamos un valor predeterminado
+  notaMaria: number = 0; // Asignamos un valor predeterminado
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -22,6 +24,14 @@ export class MoviesDetailsPage implements OnInit {
   public movie$: Observable<any> = this.movies.getMoviesDetails(this.id);
 
   ngOnInit() {}
+   guardarNotas() {
+     // Aquí puedes guardar las notas en tu base de datos o hacer lo que necesites con ellas
+     console.log('Nota Marc:', this.notaMarc);
+     console.log('Nota Maria:', this.notaMaria);
+     // Puedes resetear los valores después de guardar si lo deseas
+     // this.notaMarc = null;
+     // this.notaMaria = null;
+   }
 
   openHome() {
     this.router.navigate(['/movies']);
