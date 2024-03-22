@@ -45,7 +45,7 @@ export class MoviesPage implements OnInit {
     });
     (await loading).present;
 
-    this.movies.getTopRatedMovies(this.currentPage).subscribe({
+    this.movies.getPopularMovies(this.currentPage).subscribe({
       next: async (res: Movies) => {
         (await loading).dismiss();
         // this.movie = [...this.movie, ...res.results];

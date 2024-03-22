@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'toprated/:id/:name',
     loadChildren: () => import('./pages/trailer/trailer.module').then( m => m.TrailerPageModule)
+  },
+  {
+    path: 'ranking',
+    loadChildren: () => import('./pages/ranking/ranking.module').then( m => m.RankingPageModule)
   }
 
 

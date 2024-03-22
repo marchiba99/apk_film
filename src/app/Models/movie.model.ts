@@ -21,4 +21,6 @@ export interface Movies {
   ];
   total_pages: number;
   total_results: number;
+  nota_marc: number;
+  nota_maria: number;
 }
