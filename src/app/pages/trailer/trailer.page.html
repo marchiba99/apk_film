@@ -15,7 +15,7 @@
         refreshingText="Refreshing...">
       </ion-refresher-content>
     </ion-refresher>
-    
+
     <div>
       <ion-img *ngIf="item?.backdrop_path != null;else poster" lazy [src]="imgbaseUrl + '/w1280' + item?.backdrop_path"></ion-img>
       <ng-template #poster>

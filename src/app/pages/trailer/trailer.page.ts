@@ -35,19 +35,11 @@ export class TrailerPage implements OnInit {
       this.vid = res.results;
       this.vid.forEach((element: any) => {
         console.log(element)
-        if(element.name.toLowerCase() === 'official trailer'){
-          this.video = element
-          this.official = 'Official Trailer'
-        }
-
+        this.video = element
+        this.official = 'Trailer de la pelicula'
         this.hold = element;
       });
     });
-
-    if(!this.video){
-      this.video = this.hold;
-      this.official = 'This is not an offical trailer'
-    }
   }
 
   handleRefresh(event: any) {
