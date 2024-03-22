@@ -7,8 +7,17 @@ export const environment = {
   apiKey: 'de8938e23874bd490f7219eaa8cc3118',
   baseUrl: 'https://api.themoviedb.org/3',
   images: 'http://image.tmdb.org/t/p',
-  lang: 'es'
+  lang: 'es',
+  firebaseConfig: {
+    apiKey: "AIzaSyAQqkdDF2vlC27b3WwOEZvK-DvSqnOLfSQ",
+    authDomain: "apprating-c1e8a.firebaseapp.com",
+    projectId: "apprating-c1e8a",
+    storageBucket: "apprating-c1e8a.appspot.com",
+    messagingSenderId: "425197956377",
+    appId: "1:425197956377:web:7fe007de2c1a302eaaa988"
+  }
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

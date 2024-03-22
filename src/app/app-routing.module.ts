@@ -38,7 +38,32 @@ const routes: Routes = [
   {
     path: 'toprated/:id/:name',
     loadChildren: () => import('./pages/trailer/trailer.module').then( m => m.TrailerPageModule)
+  },
+  {
+    path: 'registration',
+    loadChildren: () => import('./pages/registration/registration.module').then(m => m.RegistrationPageModule)
+  },
+  {
+    path: 'verify-email',
+    loadChildren: () => import('./pages/verify-email/verify-email.module').then(m => m.VerifyEmailPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardPageModule)
+  },
+  {
+    path: 'password-reset',
+    loadChildren: () => import('./pages/password-reset/password-reset.module').then(m => m.PasswordResetPageModule)
   }
+
+
+
+
+
 
 
 

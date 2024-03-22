@@ -1,11 +1,36 @@
 <ion-header color="primary">
   <ion-toolbar>
+
     <ion-title>Trending Movies</ion-title>
-    <ion-button id="open-modal" fill="clear" slot="end"
-      ><ion-icon color="primary" name="ellipsis-vertical-outline"></ion-icon
-    ></ion-button>
+
+    <ion-buttons slot="start">
+      <ion-button
+        [routerLink]="['/registration']"
+        fill="clear"
+        size="small"
+        color="primary"
+      >
+        Register
+      </ion-button>
+      <ion-button
+        [routerLink]="['/login']"
+        fill="clear"
+        size="small"
+        color="danger"
+      >
+        Sign In
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button id="open-modal" fill="clear">
+        <ion-icon color="primary" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+
 
 <ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
